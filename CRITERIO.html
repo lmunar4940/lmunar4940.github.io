@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRITERIO — Demostración · Luis A. Munar Durán</title>
+<meta name="description" content="Demostración del interrogador socrático CRITERIO. Caso de proporcionalidad en el ataque. Formación en pensamiento crítico para profesionales de la seguridad y el derecho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --petrol:#0d4553; --deep:#08333d; --cream:#e9eee8;
+    --teal:#7fc8bb; --amber:#d99a3a; --ink:#0a2129; --muted:#5f7a80;
+    --rule:rgba(233,238,232,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--deep); color:var(--cream);
+    font-family:'Inter',system-ui,sans-serif; font-size:17px; line-height:1.6;
+    -webkit-font-smoothing:antialiased; min-height:100vh;
+  }
+  .wrap{max-width:780px;margin:0 auto;padding:0 24px}
+
+  /* Top bar */
+  .top{border-bottom:1px solid var(--rule);padding:18px 0}
+  .top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .brand{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:var(--teal)}
+  .back{font-size:13px;color:rgba(233,238,232,.55);text-decoration:none}
+  .back:hover{color:var(--cream)}
+
+  /* Intro */
+  .intro{padding:56px 0 40px;border-bottom:1px solid var(--rule)}
+  .badge{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--amber);
+    border:1px solid rgba(217,154,58,.4);border-radius:2px;padding:4px 9px;margin-bottom:22px;
+  }
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.2;letter-spacing:-.01em}
+  .sub{margin-top:18px;color:rgba(233,238,232,.7);max-width:58ch}
+  .note{
+    margin-top:26px;padding:14px 16px;border-left:2px solid var(--teal);
+    background:rgba(127,200,187,.07);font-size:14px;color:rgba(233,238,232,.72);
+  }
+
+  /* Case */
+  main{padding:44px 0 80px}
+  .caso{
+    border:1px solid var(--rule);border-radius:3px;padding:26px;margin-bottom:36px;
+    background:rgba(0,0,0,.18);
+  }
+  .caso .lbl{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:14px;
+  }
+  .caso h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.25rem;margin-bottom:14px;color:var(--cream)}
+  .caso p{font-size:15.5px;color:rgba(233,238,232,.82)}
+  .caso p+p{margin-top:12px}
+
+  /* Dialogue */
+  .turn{margin-bottom:32px;animation:rise .45s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.turn{animation:none}}
+
+  .who{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  .criterio .who{color:var(--teal)}
+  .usuario .who{color:var(--amber)}
+
+  .criterio .msg{
+    border-left:2px solid var(--teal);padding-left:20px;
+    font-size:16.5px;color:var(--cream);
+  }
+  .criterio .msg p+p{margin-top:14px}
+  .usuario .msg{
+    border-left:2px solid var(--amber);padding-left:20px;
+    font-size:16px;color:rgba(233,238,232,.78);font-style:italic;
+  }
+
+  /* Options */
+  .opts{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+  .opt{
+    text-align:left;font-family:'Inter',sans-serif;font-size:15.5px;line-height:1.5;
+    background:rgba(255,255,255,.03);color:var(--cream);
+    border:1px solid var(--rule);border-radius:3px;
+    padding:16px 18px;cursor:pointer;transition:.18s;
+  }
+  .opt:hover{border-color:var(--teal);background:rgba(127,200,187,.09);transform:translateX(3px)}
+  .opt .k{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);
+    margin-right:12px;letter-spacing:.08em;
+  }
+  .opt:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+  /* Report */
+  .informe{
+    border:1px solid rgba(217,154,58,.35);border-radius:3px;
+    background:rgba(217,154,58,.06);padding:30px;margin-top:16px;
+  }
+  .informe .lbl{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:18px;
+  }
+  .informe h3{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.3rem;margin-bottom:20px}
+  .row{padding:16px 0;border-top:1px solid rgba(233,238,232,.1)}
+  .row b{
+    display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+    font-weight:500;margin-bottom:6px;
+  }
+  .row p{font-size:15px;color:rgba(233,238,232,.85)}
+
+  .end{
+    margin-top:40px;padding-top:32px;border-top:1px solid var(--rule);
+    text-align:center;
+  }
+  .end p{color:rgba(233,238,232,.65);font-size:15px;max-width:50ch;margin:0 auto 22px}
+  .cta{
+    display:inline-block;background:var(--amber);color:var(--deep);
+    font-weight:600;font-size:15px;text-decoration:none;
+    padding:13px 26px;border-radius:3px;transition:.18s;
+  }
+  .cta:hover{background:#e9ab4b;transform:translateY(-1px)}
+  .again{
+    display:block;margin-top:20px;background:none;border:none;cursor:pointer;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;
+    color:var(--muted);text-decoration:underline;margin-left:auto;margin-right:auto;
+  }
+  .again:hover{color:var(--teal)}
+
+  footer{border-top:1px solid var(--rule);padding:24px 0;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;
+    color:rgba(233,238,232,.35);text-align:center}
+
+  @media(max-width:640px){
+    body{font-size:16px}
+    .wrap{padding:0 18px}
+    .intro{padding:38px 0 30px}
+    .caso{padding:20px}
+    .informe{padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <span class="brand">CRITERIO</span>
+    <a class="back" href="index.html">← Volver</a>
+  </div>
+</div>
+
+<div class="intro">
+  <div class="wrap">
+    <span class="badge">Demostración · Sin registro</span>
+    <h1>No te va a decir si tienes razón. Te va a preguntar por qué crees que la tienes.</h1>
+    <p class="sub">CRITERIO es un interrogador socrático para formación en juicio profesional. No corrige: presiona. El alumno defiende una posición y la herramienta busca la grieta.</p>
+    <div class="note"><strong>Esto es una demostración guionizada.</strong> Recorre un caso real con las respuestas ya escritas, para que veas cómo funciona sin necesidad de registrarte ni de una clave de API. La versión completa razona en vivo sobre 26 casos repartidos en 8 salas temáticas, y emite un informe de valoración individual.</div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <div class="caso">
+      <div class="lbl">Sala 3 · Uso de la fuerza — Caso 11</div>
+      <h2>Proporcionalidad en el ataque</h2>
+      <p>Conflicto armado no internacional. La inteligencia sitúa, con confianza alta, a un comandante enemigo responsable directo de tres atentados con más de sesenta muertos civiles. Está en una vivienda de un barrio residencial. La ventana de oportunidad es de cuarenta minutos.</p>
+      <p>El análisis de daños colaterales estima <strong>entre cuatro y siete civiles muertos</strong>, incluidos menores. No hay opción de captura: la unidad terrestre más cercana está a nueve horas. Si no se ataca ahora, se pierde el objetivo y, según la inteligencia disponible, es probable que planifique nuevos atentados.</p>
+      <p><strong>Eres el asesor jurídico del mando. Tienes que dar una recomendación.</strong></p>
+    </div>
+
+    <div id="hilo"></div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">CRITERIO · Luis A. Munar Durán</div>
+</footer>
+
+<script>
+const guion = [
+  {
+    criterio: ["Antes de nada: no te pregunto qué harías. Te pregunto qué recomendarías <em>como jurista</em>, y con qué fundamento. Elige."],
+    opciones: [
+      { k:"A", txt:"El ataque es lícito. El daño civil esperado no es excesivo en relación con la ventaja militar concreta y directa prevista." },
+      { k:"B", txt:"El ataque es ilícito. Hay menores entre las víctimas previsibles y eso no puede compensarse con ninguna ventaja." },
+      { k:"C", txt:"No puedo emitir una recomendación con esta información. Faltan datos esenciales." }
+    ]
+  },
+  {
+    // Turno 2 — respuesta específica según la elección
+    porOpcion: {
+      A: ["Has aplicado correctamente el artículo 51.5.b del Protocolo Adicional I. Bien. Ahora dime una cosa.",
+          "Has escrito «ventaja militar concreta y directa». ¿Cuál es, exactamente? Porque «impedir atentados futuros» <strong>no es una ventaja militar concreta y directa</strong>: es una ventaja estratégica hipotética. Si aceptas ese razonamiento, ¿qué ataque quedaría prohibido alguna vez?"],
+      B: ["Entiendo la posición. Pero acabas de introducir una regla que el derecho no contiene.",
+          "El DIH <strong>no prohíbe</strong> el daño a menores: prohíbe el daño <em>excesivo</em>. Si sostienes que la presencia de un menor hace ilícito cualquier ataque, has creado un incentivo perverso evidente. ¿Lo ves?"],
+      C: ["Es la respuesta cómoda. Y a veces es la correcta. Pero hoy no te la voy a dejar gratis.",
+          "El mando tiene cuarenta minutos. Tu abstención <strong>no es neutral</strong>: es una decisión, y produce un resultado. Dime qué datos faltan, y por qué su ausencia impide el juicio de proporcionalidad —no simplemente por qué te incomoda hacerlo."]
+    },
+    opciones: [
+      { k:"A", txt:"La ventaja concreta es la neutralización de un mando operativo con capacidad de dirigir ataques. No es hipotética: es su función actual." },
+      { k:"B", txt:"Reconozco que la formulación era imprecisa. La ventaja debe medirse por el ataque en su conjunto, no por sus efectos futuros." },
+      { k:"C", txt:"El estándar de «concreta y directa» es indeterminado por diseño. Lo decide el mando razonable en el momento, no yo a posteriori." }
+    ]
+  },
+  {
+    criterio: ["Ahora estamos en el sitio difícil. Última pregunta, y es la única que importa.",
+      "Supón que atacas. Mueren siete civiles, tres de ellos niños. Y después se descubre que la inteligencia era errónea: el objetivo no estaba en la casa.",
+      "<strong>¿Fue ilícito el ataque?</strong> Cuidado con la respuesta, porque en ella se juega si has entendido el DIH o solo lo has memorizado."],
+    opciones: [
+      { k:"A", txt:"Sí. El resultado fue muerte de civiles sin ventaja militar alguna. El daño fue, por definición, excesivo." },
+      { k:"B", txt:"No. La licitud se juzga ex ante, con la información razonablemente disponible en el momento de la decisión. El error no convierte en criminal lo que fue diligente." },
+      { k:"C", txt:"Depende de si la inteligencia fue verificada con la diligencia exigible. El error puede ser excusable o culpable." }
+    ]
+  }
+];
+
+const informes = {
+  // clave = últimas dos elecciones
+  B: {
+    nivel: "Sólido — con una grieta señalada",
+    diag: "Ha identificado correctamente el principio rector: la proporcionalidad se juzga <em>ex ante</em>, sobre la información razonablemente disponible, no sobre el resultado. Esa distinción separa al jurista del comentarista.",
+    grieta: "En el primer turno formuló la ventaja militar en términos de prevención de atentados futuros. Es un error frecuente y no menor: convierte un estándar acotado en una autorización abierta. Lo rectificó al ser confrontado, lo que indica juicio real y no memorización.",
+    trabajo: "Trabajar la delimitación de «ventaja militar concreta y directa» frente a la ventaja estratégica. Es el punto exacto donde el DIH se rompe en la práctica."
+  },
+  C: {
+    nivel: "Matizado — riesgo de refugio en la ambigüedad",
+    diag: "Ha llegado a la respuesta más completa: la licitud depende de la diligencia en la verificación, no del resultado. Es correcto, y va más allá de lo exigible.",
+    grieta: "Pero atención al patrón: ha buscado el matiz en los tres turnos. El matiz es una virtud cuando se ha hecho antes el trabajo de tomar posición; es una evasión cuando lo sustituye. El asesor jurídico que responde «depende» a un mando con cuarenta minutos no está siendo prudente: está trasladando el riesgo a otro.",
+    trabajo: "Practicar la emisión de recomendaciones en firme bajo incertidumbre. Sostener una posición y asumir el error es parte del oficio."
+  },
+  A: {
+    nivel: "Insuficiente — confusión entre resultado y licitud",
+    diag: "Ha concluido que el ataque fue ilícito porque el resultado fue malo. Eso es <strong>juzgar ex post</strong>, y es el error más grave que puede cometer un asesor jurídico en materia de uso de la fuerza.",
+    grieta: "Si la licitud dependiera del resultado, ningún mando podría decidir nunca: la información en combate es siempre incompleta. El DIH exige diligencia en la decisión, no acierto en la predicción. Confundirlo convierte cualquier error de inteligencia en crimen de guerra —y con ello, paradójicamente, vacía de contenido el concepto de crimen de guerra.",
+    trabajo: "Revisar la doctrina del «mando razonable» y la jurisprudencia del TPIY sobre el estándar de conocimiento en el momento del ataque. Es materia fundacional."
+  }
+};
+
+const hilo = document.getElementById('hilo');
+let paso = 0;
+const elecciones = [];
+
+function render(html){
+  const d = document.createElement('div');
+  d.innerHTML = html;
+  while(d.firstChild) hilo.appendChild(d.firstChild);
+  const ultimo = hilo.lastElementChild;
+  if(ultimo) ultimo.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function turno(){
+  const t = guion[paso];
+  let textos;
+  if(t.porOpcion){
+    textos = t.porOpcion[elecciones[elecciones.length-1]];
+  } else {
+    textos = t.criterio;
+  }
+  render(`<div class="turn criterio">
+      <div class="who">CRITERIO</div>
+      <div class="msg">${textos.map(p=>`<p>${p}</p>`).join('')}</div>
+      <div class="opts" id="opts"></div>
+    </div>`);
+
+  const cont = document.getElementById('opts');
+  t.opciones.forEach(o=>{
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="k">${o.k}</span>${o.txt}`;
+    b.onclick = ()=>elegir(o);
+    cont.appendChild(b);
+  });
+}
+
+function elegir(o){
+  document.getElementById('opts').remove();
+  elecciones.push(o.k);
+  render(`<div class="turn usuario">
+      <div class="who">Tu respuesta</div>
+      <div class="msg">${o.txt}</div>
+    </div>`);
+  paso++;
+  if(paso < guion.length){
+    setTimeout(turno, 650);
+  } else {
+    setTimeout(informe, 750);
+  }
+}
+
+function informe(){
+  const r = informes[elecciones[elecciones.length-1]];
+  render(`<div class="turn">
+    <div class="informe">
+      <div class="lbl">Informe de valoración</div>
+      <h3>${r.nivel}</h3>
+      <div class="row"><b>Diagnóstico</b><p>${r.diag}</p></div>
+      <div class="row"><b>Punto débil</b><p>${r.grieta}</p></div>
+      <div class="row"><b>Trabajo recomendado</b><p>${r.trabajo}</p></div>
+    </div>
+    <div class="end">
+      <p>La versión completa razona en vivo: no hay guion, no hay respuestas previstas. 26 casos, 8 salas temáticas, informe individual por sesión.</p>
+      <a class="cta" href="mailto:luismunarduran@gmail.com?subject=CRITERIO%20—%20información">Solicitar información</a>
+      <button class="again" onclick="reiniciar()">Repetir el caso con otras respuestas</button>
+    </div>
+  </div>`);
+}
+
+function reiniciar(){
+  hilo.innerHTML = '';
+  paso = 0;
+  elecciones.length = 0;
+  turno();
+}
+
+turno();
+</script>
+</body>
+</html>
