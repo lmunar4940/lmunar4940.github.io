@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Luis A. Munar Durán — Derecho internacional, conflicto y fallo institucional</title>
-<meta name="description" content="Profesor de Derecho Internacional Público, DIH y Derecho Penal Internacional en UNIR. Oficial de la Reserva Voluntaria, con destino en el Estado Mayor de la Defensa. Piloto de aviación y de aeronaves no tripuladas. Experiencia sobre el terreno en Siria, Colombia y la Triple Frontera.">
+<meta name="description" content="Profesor de Derecho Internacional Público, DIH y Derecho Penal Internacional en UNIR. Oficial (RV) del Ejército del Aire, con destino en el Estado Mayor de la Defensa. Piloto de aeronaves y de UAV. Experiencia sobre el terreno en Siria, Colombia y la Triple Frontera.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,13 +46,12 @@
     font-size:13px;letter-spacing:.14em;text-transform:uppercase;
     color:var(--petrol);font-weight:500;
   }
-  nav ul{display:flex;gap:28px;list-style:none}
+  nav ul{display:flex;gap:26px;list-style:none}
   nav a{
     color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;
     padding-bottom:2px;border-bottom:1px solid transparent;transition:.2s;
   }
   nav a:hover,nav a:focus{color:var(--petrol);border-bottom-color:var(--amber)}
-  .navtoggle{display:none}
 
   /* ---------- HERO ---------- */
   header{
@@ -82,19 +81,19 @@
   }
   h1 em{font-style:normal;color:var(--amber)}
   .lede{
-    margin-top:32px;max-width:56ch;
+    margin-top:32px;max-width:58ch;
     color:rgba(233,238,232,.74);
     font-size:1.06rem;
   }
   .heroname{
     margin-top:48px;padding-top:24px;
     border-top:1px solid rgba(127,200,187,.22);
-    display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline;
+    display:flex;flex-direction:column;gap:5px;
   }
-  .heroname strong{font-weight:600;font-size:1rem;color:var(--cream)}
+  .heroname strong{font-weight:600;font-size:1.05rem;color:var(--cream);margin-bottom:6px}
   .heroname span{
     font-family:'JetBrains Mono',monospace;font-size:12px;
-    color:rgba(233,238,232,.55);letter-spacing:.04em;
+    color:rgba(233,238,232,.55);letter-spacing:.04em;line-height:1.5;
   }
 
   /* ---------- SECTIONS ---------- */
@@ -144,23 +143,31 @@
   }
   .tool a:hover{color:var(--deep)}
 
-  /* Publicaciones */
-  .pubs{list-style:none}
+  /* Publicaciones / Ponencias */
+  .subhead{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--petrol);font-weight:500;
+    margin:0 0 6px;padding-bottom:8px;
+  }
+  .subhead.second{margin-top:56px}
+  .pubs{list-style:none;margin-bottom:0}
   .pub{
-    display:grid;grid-template-columns:88px 1fr auto;gap:24px;align-items:baseline;
-    padding:20px 0;border-top:1px solid var(--rule);
+    display:grid;grid-template-columns:96px 1fr auto;gap:24px;align-items:baseline;
+    padding:18px 0;border-top:1px solid var(--rule);
   }
-  .pub:last-child{border-bottom:1px solid var(--rule)}
+  .pubs .pub:last-child{border-bottom:1px solid var(--rule)}
   .pub .yr{
-    font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted);
+    white-space:nowrap;
   }
-  .pub .ttl{font-weight:500;color:var(--ink)}
-  .pub .ttl small{display:block;font-weight:400;color:var(--muted);font-size:14px;margin-top:3px}
+  .pub .ttl{font-weight:500;color:var(--ink);line-height:1.45}
+  .pub .ttl small{display:block;font-weight:400;color:var(--muted);font-size:13.5px;margin-top:4px;line-height:1.5}
   .pub .kind{
     font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;
     text-transform:uppercase;color:var(--petrol);
     background:rgba(127,200,187,.22);border-radius:2px;padding:3px 8px;white-space:nowrap;
   }
+  .pub .kind.soon{background:rgba(217,154,58,.2)}
 
   /* Formación */
   .offer{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -172,7 +179,7 @@
   .card p{font-size:14.5px;color:#3d5a63;line-height:1.55}
 
   /* Contacto */
-  #contacto{border-bottom:none;background:var(--deep);color:var(--cream);margin-top:0}
+  #contacto{border-bottom:none;background:var(--deep);color:var(--cream)}
   #contacto .sechead h2{color:var(--cream)}
   #contacto .sechead .tag{color:var(--teal);border-color:rgba(127,200,187,.3)}
   .contactgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -201,6 +208,7 @@
     .bio,.tools,.offer,.contactgrid{grid-template-columns:1fr;gap:32px}
     .pub{grid-template-columns:1fr;gap:6px}
     .pub .kind{justify-self:start}
+    .pub .yr{margin-bottom:2px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
@@ -228,8 +236,8 @@
     <div class="heroname">
       <strong>Luis Alfonso Munar Durán</strong>
       <span>Profesor de DIP, DIH y Derecho Penal Internacional · UNIR</span>
-      <span>Oficial de la Reserva Voluntaria · Estado Mayor de la Defensa</span>
-      <span>Piloto de aviación y de aeronaves no tripuladas</span>
+      <span>Oficial (RV) del Ejército del Aire · Estado Mayor de la Defensa</span>
+      <span>Piloto de aeronaves y de UAV</span>
     </div>
   </div>
 </header>
@@ -240,17 +248,16 @@
     <div class="bio">
       <div>
         <p>Soy profesor de Derecho Internacional Público, Derecho Internacional Humanitario y Derecho Penal Internacional en la Universidad Internacional de La Rioja, donde dirijo y evalúo trabajos de fin de grado y de máster.</p>
-        <p>Fui oficial de la Reserva Voluntaria: primero en el Ejército de Tierra, en el Regimiento de Infantería «Guadalajara» n.º 20, y después en el Ejército del Aire, con destino en el Estado Mayor de la Defensa. Soy piloto de aviación y de aeronaves no tripuladas —civil, no militar—. Tengo experiencia sobre el terreno en Siria, Colombia y la Triple Frontera.</p>
+        <p>Como aspirante a la Academia de Oficiales serví en el Regimiento de Infantería «Guadalajara» n.º 20. Oficial (RV) del Ejército del Aire, con destino en el Estado Mayor de la Defensa. Soy piloto de aeronaves y de UAV. Tengo experiencia sobre el terreno en Siria, Colombia y la Triple Frontera.</p>
         <p>Esa combinación es poco frecuente: la mayoría de quienes escriben sobre el uso de la fuerza no han estado donde se usa, y la mayoría de quienes han estado allí no escriben sobre ello.</p>
         <p>Mi trabajo se ocupa de un solo problema, visto desde varios ángulos: la distancia entre lo que una institución cree que hace y lo que realmente hace. Rigidez doctrinal, normalización de la desviación, fracaso contrainsurgente, asimetría en la justicia transicional. No es crítica desde fuera: es análisis desde dentro.</p>
       </div>
       <ul class="facts">
         <li><b>Docencia</b>UNIR — Derecho Internacional Público, DIH, Derecho Penal Internacional</li>
-        <li><b>Militar</b>Oficial de la Reserva Voluntaria — Ejército de Tierra (Rgto. Infantería «Guadalajara» n.º 20) y Ejército del Aire (Estado Mayor de la Defensa)</li>
-        <li><b>Vuelo</b>Piloto de aviación · Piloto de aeronaves no tripuladas</li>
+        <li><b>Militar</b>Oficial (RV) del Ejército del Aire — Estado Mayor de la Defensa</li>
+        <li><b>Vuelo</b>Piloto de aeronaves y de UAV</li>
         <li><b>Terreno</b>Siria · Colombia · Triple Frontera</li>
         <li><b>Afiliaciones</b>RUSI (n.º 12658) · IAFIE · ADESyD · AUVSI</li>
-        <li><b>Idiomas</b>Español · Inglés</li>
       </ul>
     </div>
   </div>
@@ -259,7 +266,7 @@
 <section id="herramientas">
   <div class="wrap">
     <div class="sechead"><h2>Herramientas de entrenamiento</h2><span class="tag">Demostraciones</span></div>
-    <p style="max-width:62ch;margin-bottom:36px;color:#3d5a63">Diseño y programo simuladores de decisión para formación en seguridad, derecho y análisis. No son productos de consumo: son instrumentos docentes construidos sobre casos reales, y se despliegan dentro de instituciones. Abajo, versiones de demostración.</p>
+    <p style="max-width:62ch;margin-bottom:36px;color:#3d5a63">Diseño y programo simuladores de decisión para formación en seguridad, derecho y análisis. No son productos de consumo: son instrumentos docentes construidos sobre casos reales, y se despliegan dentro de instituciones.</p>
     <div class="tools">
       <div class="tool">
         <h3>CRITERIO</h3>
@@ -285,32 +292,93 @@
 
 <section id="publicaciones">
   <div class="wrap">
-    <div class="sechead"><h2>Publicaciones y conferencias</h2><span class="tag">Trabajo publicado</span></div>
+    <div class="sechead"><h2>Publicaciones y ponencias</h2><span class="tag">Trabajo publicado</span></div>
+
+    <div class="subhead">Publicaciones</div>
     <ul class="pubs">
       <li class="pub">
-        <span class="yr">2026</span>
+        <span class="yr">En preparación</span>
+        <span class="ttl">Generales de PowerPoint<small>Patrones de fallo institucional en organizaciones militares.</small></span>
+        <span class="kind soon">Libro</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2025</span>
+        <span class="ttl">Una sola golondrina en Siria: caso de enseñanza sobre una misión de inteligencia<small>En <em>Casos de Enseñanza: Algunos dilemas éticos</em>, Vol. II. Escuela Militar de Aviación «Marco Fidel Suárez» (Fuerza Aeroespacial Colombiana), en coedición con la Escuela Naval de Cadetes «Almirante Padilla». ISBN 978-628-7865-08-2. Con el TE. (RA) Luis Fernando Escobar Nieto.</small></span>
+        <span class="kind">Capítulo de libro</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2025</span>
+        <span class="ttl">Más allá de la inercia: el Convenio de Chicago vigente en la aviación civil internacional<small>NAVIGARE, n.º 4. Instituto Iberoamericano de Derecho Aeronáutico y del Espacio. ISSN 3045-7149.</small></span>
+        <span class="kind">Artículo</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2025</span>
         <span class="ttl">La contrainsurgencia fallida<small>Por qué las campañas contrainsurgentes se pierden antes de empezar.</small></span>
         <span class="kind">Libro</span>
       </li>
       <li class="pub">
-        <span class="yr">2026</span>
-        <span class="ttl">La impunidad del terror<small>Asimetría en la individualización de la pena ante la JEP colombiana.</small></span>
+        <span class="yr">2025</span>
+        <span class="ttl">La impunidad del terror<small>Asimetría en la individualización de la pena ante la Jurisdicción Especial para la Paz (Colombia).</small></span>
         <span class="kind">Artículo</span>
       </li>
       <li class="pub">
-        <span class="yr">2026</span>
-        <span class="ttl">Derecho aeroespacial y riesgo sistémico<small>III Congreso Internacional de Derecho — EMAVI, Escuela Militar de Aviación (Colombia).</small></span>
-        <span class="kind">Ponencia</span>
-      </li>
-      <li class="pub">
-        <span class="yr">2026</span>
-        <span class="ttl">Asimetría punitiva en la justicia transicional<small>V Congreso Internacional de Derecho — Universidad de la Costa (Colombia).</small></span>
-        <span class="kind">Ponencia</span>
-      </li>
-      <li class="pub">
-        <span class="yr">En preparación</span>
-        <span class="ttl">Generales de PowerPoint<small>Patrones de fallo institucional en organizaciones militares.</small></span>
+        <span class="yr">2025</span>
+        <span class="ttl">La revolución de la inteligencia crítica<small>Sobre el juicio analítico y la resistencia al pensamiento doctrinario.</small></span>
         <span class="kind">Libro</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2025</span>
+        <span class="ttl">Las invisibles<small>La importancia de las mujeres en el mundo de la inteligencia.</small></span>
+        <span class="kind">Libro</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2025</span>
+        <span class="ttl">Siria, carne de cañón. Todo por la patria<small>Novela. Relato novelado de una experiencia personal en el conflicto sirio, 2012-2015.</small></span>
+        <span class="kind">Libro</span>
+      </li>
+    </ul>
+
+    <div class="subhead second">Ponencias y docencia</div>
+    <ul class="pubs">
+      <li class="pub">
+        <span class="yr">Sept. 2026</span>
+        <span class="ttl">Justicia transicional y asimetría punitiva<small>V Congreso Internacional de Derecho. Universidad de la Costa (Barranquilla, Colombia).</small></span>
+        <span class="kind soon">Próxima</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2026</span>
+        <span class="ttl">Evolución del Derecho Aeroespacial ante los riesgos sistémicos y la normalización de la desviación<small>III Congreso Internacional de Derecho «Paradigmas del Derecho Global 2026». Escuela Militar de Aviación «Marco Fidel Suárez» (EMAVI), Fuerza Aeroespacial Colombiana. Cali.</small></span>
+        <span class="kind">Conferencia</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2026</span>
+        <span class="ttl">Conflicto armado, derecho y triangulación de fuentes<small>Master Class como profesor invitado. Programa de Derecho, Universidad de la Costa (CUC), Colombia.</small></span>
+        <span class="kind">Master Class</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2025</span>
+        <span class="ttl">Conflictos y crímenes internacionales. La ayuda humanitaria en tiempos de guerra y paz<small>Seminario de 384 horas. Facultad de Derecho, Universidad Internacional de La Rioja (UNIR).</small></span>
+        <span class="kind">Seminario</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2025</span>
+        <span class="ttl">Anticipar, innovar y decidir: inteligencia estratégica en la gestión aeronáutica del siglo XXI<small>I Congreso Internacional de Gestión Aeronáutica. Centro de Educación Aeronáutica del Valle (CEAV), Cali.</small></span>
+        <span class="kind">Ponencia</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2025</span>
+        <span class="ttl">Seguridad y análisis de riesgo en entornos hostiles<small>Sesiones de formación al personal del CINEP (Centro de Investigación y Educación Popular), Colombia.</small></span>
+        <span class="kind">Formación</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2023</span>
+        <span class="ttl">Avances y desarrollos en inteligencia artificial<small>Conferencista. XIII Encuentro Nacional y IX Internacional de Ciencia, Tecnología e Investigación. Escuela Militar de Suboficiales «Sargento Inocencio Chincá», Fuerte Militar de Tolemaida, Colombia.</small></span>
+        <span class="kind">Conferencia</span>
+      </li>
+      <li class="pub">
+        <span class="yr">2010</span>
+        <span class="ttl">El Sahel como vivero de la insurgencia islámica. Guerras del agua<small>IV Congreso Internacional de Seguridad y Defensa «Nuevos modelos de estabilización y cooperación». Universidad de Granada / Fundación Euroárabe de Altos Estudios.</small></span>
+        <span class="kind">Comunicación</span>
       </li>
     </ul>
   </div>
